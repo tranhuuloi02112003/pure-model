@@ -1,16 +1,9 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
-// <div class="modal-backdrop">
-//   <div class="modal-container">
-//     <button class="modal-close">&times;</button>
-//     <div class="modal-content">Modal 1 Content</div>
-//   </div>
-// </div>
-
 function Modal() {
   this.openModal = (options = {}) => {
-    const { templateId } = options;
+    const { templateId, allowBackdropClose = true } = options;
     const template = $(`#${templateId}`);
 
     if (!template) {
@@ -49,23 +42,31 @@ function Modal() {
       this.closeModal(backdrop);
     };
 
-    backdrop.onclick = (e) => {
-      if (e.target === backdrop) {
-        this.closeModal(backdrop);
-      }
-    };
+    if (allowBackdropClose) {
+       backdrop.onclick = (e) => {
+         if (e.target === backdrop) {
+           this.closeModal(backdrop);
+         }
+        };
+    }
 
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
         this.closeModal(backdrop);
       }
     });
+
+    // Disable scrolling on the body
+    document.body.classList.add("no-scroll");
+    return backdrop;
   };
 
   this.closeModal = (modalElement) => {
     modalElement.classList.remove("show");
     modalElement.ontransitionend = () => {
       modalElement.remove();
+      // Enable scrolling on the body
+    document.body.classList.remove("no-scroll");
     };
   };
 }
@@ -77,5 +78,18 @@ $("#open-modal-1").onclick = () => {
 };
 
 $("#open-modal-2").onclick = () => {
-  modal.openModal({ templateId: "modal-2" });
+  const modalElement = modal.openModal({
+    templateId: "modal-2",
+    allowBackdropClose: false,
+  });
+
+  const form = modalElement.querySelector("#login-form");
+  if (form) {
+    form.onsubmit = (e) => {
+      e.preventDefault();
+      const username = form.username.value;
+      const password = form.password.value;
+      console.log("Logging in:", { username, password });
+    };
+  }
 };
