@@ -8,39 +8,55 @@
   </head>
   <body>
     <main>
-      <button id="open-modal" class="btn" data-modal="#modal-1">
-        Open Modal 1
-      </button>
-      <button id="open-modal" class="btn" data-modal="#modal-2">
-        Open Modal 2
-      </button>
-      <button id="open-modal" class="btn" data-modal="#modal-3">
-        Open Modal 3
-      </button>
+      <button id="open-modal-1" class="btn">Open Modal 1</button>
+      <button id="open-modal-2" class="btn">Open Modal 2</button>
     </main>
-    <!-- Modal 1 -->
-    <div id="modal-1" class="modal-backdrop">
-      <div class="modal-container">
-        <button class="modal-close">&times;</button>
-        <div class="modal-content">Modal 1 Content</div>
-      </div>
-    </div>
+    <template id="modal-1">
+      <h1>Lorem ipsum dolor sit amet.</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, quis.</p>
+      <p>
+        <img
+          src="https://images.unsplash.com/photo-1516205651411-aef33a44f7c2?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Zmxvd2VyfGVufDB8fDB8fHww"
+          alt=""
+          width="100%"
+        />
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto dolor ex
+        quas at esse.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque,
+        adipisci accusantium quam recusandae modi voluptate inventore velit
+        iste!
+      </p>
+    </template>
 
-    <!-- Modal 2 -->
-    <div id="modal-2" class="modal-backdrop">
-      <div class="modal-container">
-        <button class="modal-close">&times;</button>
-        <div class="modal-content">Modal 2 Content</div>
-      </div>
-    </div>
+    <template id="modal-2">
+      <h1>Login</h1>
+      <form action="" id="login-form">
+        <label for="username">Username:</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          required
+          placeholder="Enter your username"
+        />
+        <br />
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          required
+          placeholder="Enter your password"
+        />
+        <br />
+        <button type="submit">Login</button>
+      </form>
+    </template>
 
-    <!-- Modal 3 -->
-    <div id="modal-3" class="modal-backdrop">
-      <div class="modal-container">
-        <button class="modal-close">&times;</button>
-        <div class="modal-content">Modal 3 Content</div>
-      </div>
-    </div>
     <script src="main.js"></script>
   </body>
 </html>
