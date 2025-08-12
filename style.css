@@ -54,7 +54,7 @@ button {
   width: min(600px, 90%);
   border-radius: 10px;
   background: #fff;
-  padding: 28px;
+  padding: 20px 20px 0;
   transform: scale(0);
   transition: transform 0.3s;
 }
@@ -80,4 +80,29 @@ button {
 
 .no-scroll {
   overflow: hidden;
+}
+
+.modal-footer {
+  padding: 20px 0px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.modal-btn {
+  background: #c7b8b8;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 3px;
+}
+.modal-btn.primary {
+  background: #3988d1;
+}
+
+.modal-btn.danger {
+  background: #d13939;
+}
+
+.modal-btn.pull-left {
+  margin-right: auto;
 }
